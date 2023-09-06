@@ -1,9 +1,12 @@
+import QueryContext from './context/QueryContext';
 import Router from './routes/Router';
 
 function App() {
   return (
     <>
-      <Router />
+      <QueryContext>
+        <Router />
+      </QueryContext>
     </>
   );
 }

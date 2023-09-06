@@ -1,11 +1,19 @@
 import { Map } from 'react-kakao-maps-sdk';
 
-const KakaoMap = () => {
+type Props = {
+  children?: React.ReactNode;
+  onCreate: (map: kakao.maps.Map | undefined) => void;
+};
+
+const KakaoMap = ({ children, onCreate }: Props) => {
   return (
     <Map
-      center={{ lat: 33.450701, lng: 126.570667 }}
+      center={{ lat: 37.555167, lng: 126.970833 }}
       style={{ width: '100%', height: 'calc(100vh - 70px)' }}
-    ></Map>
+      onCreate={onCreate}
+    >
+      {children}
+    </Map>
   );
 };
 

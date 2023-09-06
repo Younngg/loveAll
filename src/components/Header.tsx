@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className='max-w-screen-lg flex justify-between items-center mx-auto py-5'>
       <Link to='/'>
-        <h1 className='text-xl font-bold'>Yes! All</h1>
+        <h1 className='text-xl font-bold'>Love All</h1>
       </Link>
       <nav className='flex gap-4 text-sm'>
         <Link to='/'>Home</Link>
