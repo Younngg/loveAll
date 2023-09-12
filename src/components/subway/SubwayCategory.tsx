@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useGetStations } from '../../hooks/subway';
+import { useRecoilState } from 'recoil';
+import { searchKeywordState } from '../../states/search';
 
 const SubwayCategory = () => {
   const [clickedLine, setClickedLine] = useState('1호선');
   const { data: stationsByLine } = useGetStations();
+  const [searchKeyword, setSearchKeyword] = useRecoilState(searchKeywordState);
 
   if (stationsByLine)
     return (
@@ -16,8 +19,10 @@ const SubwayCategory = () => {
             </p>
           ))}
         <ul>
-          {stationsByLine[clickedLine].map((station) => (
-            <li key={station.stationName}>{station.stationName}</li>
+          {stationsByLine[clickedLine].map(({ stationName }) => (
+            <li key={stationName} onClick={() => setSearchKeyword(stationName)}>
+              {stationName}
+            </li>
           ))}
         </ul>
       </div>
