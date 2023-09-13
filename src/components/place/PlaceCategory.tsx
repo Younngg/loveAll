@@ -27,7 +27,7 @@ const PlaceCategory = ({ onClick, category, type }: Props) => {
       <li>
         <button
           className={`${type === 'home' ? HOME_STYLE : PLACES_STYLE} ${
-            category === ALL_CATEGORY && 'bg-blue-500 text-white'
+            category === ALL_CATEGORY && 'bg-blue-600 text-white'
           }`}
           onClick={() => onClick(ALL_CATEGORY)}
         >
@@ -39,7 +39,7 @@ const PlaceCategory = ({ onClick, category, type }: Props) => {
           className={`${
             type === 'home' ? HOME_STYLE : PLACES_STYLE
           } flex flex-col justify-center items-center ${
-            category === 'PWD' && 'bg-blue-500 text-white'
+            category === 'PWD' && 'bg-blue-600 text-white'
           }`}
           onClick={() => onClick('PWD')}
         >
@@ -52,7 +52,7 @@ const PlaceCategory = ({ onClick, category, type }: Props) => {
           className={`${
             type === 'home' ? HOME_STYLE : PLACES_STYLE
           } flex flex-col justify-center items-center ${
-            category === 'kids' && 'bg-blue-500 text-white'
+            category === 'kids' && 'bg-blue-600 text-white'
           }`}
           onClick={() => onClick('kids')}
         >
