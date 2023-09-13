@@ -7,7 +7,7 @@ import { searchKeywordState } from '../../states/search';
 import { Place } from '../../types/place';
 
 type Props = {
-  places: Place[];
+  places: Place[] | undefined;
 };
 
 const Map = ({ places }: Props) => {
@@ -30,7 +30,7 @@ const Map = ({ places }: Props) => {
   return (
     <>
       <KakaoMap onCreate={setMap}>
-        <KakaoMapMarkers places={places} />
+        {places && <KakaoMapMarkers places={places} />}
       </KakaoMap>
     </>
   );

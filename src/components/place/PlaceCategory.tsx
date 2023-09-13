@@ -6,7 +6,7 @@ export type Category = 'all' | 'PWD' | 'kids';
 type Props = {
   onClick: (category: Category) => void;
   category: Category;
-  type: 'home' | 'places';
+  type: 'home' | 'place';
 };
 
 export const ALL_CATEGORY = 'all';

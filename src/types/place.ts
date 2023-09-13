@@ -1,5 +1,5 @@
 export type Place = {
-  id: string;
+  _id: string;
   name: string;
   position: { lat: number; lng: number };
   address: string;
