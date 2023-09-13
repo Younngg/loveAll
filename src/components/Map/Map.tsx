@@ -4,10 +4,14 @@ import KakaoMap from './KakaoMap';
 import KakaoMapMarkers from './KakaoMapMarkers';
 import { useRecoilState } from 'recoil';
 import { searchKeywordState } from '../../states/search';
+import { Place } from '../../types/place';
 
-const Map = () => {
+type Props = {
+  places: Place[];
+};
+
+const Map = ({ places }: Props) => {
   const [map, setMap] = useState<kakao.maps.Map>();
-  const [markers, setMarkers] = useState<SubwayInfo[]>([]);
   const [searchKeyword, setSearchKeyword] = useRecoilState(searchKeywordState);
 
   useEffect(() => {
@@ -16,15 +20,17 @@ const Map = () => {
 
     const markers = [];
 
-    ps.keywordSearch(`${searchKeyword}역`, (result, status, pagination) => {
-      if (status === kakao.maps.services.Status.OK) console.log(result);
-    });
+    if (searchKeyword) {
+      ps.keywordSearch(`${searchKeyword}역`, (result, status, pagination) => {
+        if (status === kakao.maps.services.Status.OK) console.log(result);
+      });
+    }
   }, [map, searchKeyword]);
 
   return (
     <>
       <KakaoMap onCreate={setMap}>
-        <KakaoMapMarkers markers={markers} />
+        <KakaoMapMarkers places={places} />
       </KakaoMap>
     </>
   );
